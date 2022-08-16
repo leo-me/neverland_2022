@@ -71,17 +71,18 @@
 
     2. 表单校验hooks
 
-    - store 维护：result 、 提醒msg
-    - 使用Map来存储，key 为 index + 校验key + 校验内容
+    - 使用Map来存储: result 、 提醒msg，key 为 index + 校验key + 校验内容
+
 
     策略模式
     - 抽象校验规则：是否为空、是否为一个合法的名称、是否为合法路径
     - 注册校验规则，组合起来
     - 校验，遍历校验规则，去校验内容
 
-    3. 我的use 通过useRef 把debounce包裹的函数存下来
+    1. 我的use 通过useRef 把debounce包裹的函数存下来
 
       ahooks：
+
       useDebounce: 传入的是一个state value， DebouncedValue 只会在输入结束 500ms 后变化。
 
       useDebounceFn: 传入fn，wait  返回一个{run, cancel，flush }， 直接运行 run
@@ -173,5 +174,13 @@ task -> 全部job -> requesetAnimationFrame -> 浏览器渲染 ---> requestIdleC
 
 
 
+可打断的更新
+
+时间切片：怎么做的
+
+怎么把控制权交回给浏览器: messagechanel
+
+
+fiber tree 是什么，怎么遍历的？
 
 
