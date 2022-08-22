@@ -1,7 +1,14 @@
-webpack
-vite
+# webpack
+# vite
+
+# 作用
+
+- 源代码无法直接在浏览器上运行
+- 压缩源代码
+
 
 # 打包流程
+
 1. 读取配置文件 webpack.config.js
 2. 创建compiler对象, 插件实例化 new plugin
 3. 开始读取entris，递归遍历所有入口
@@ -23,8 +30,10 @@ vite
 # plugin
 扩展webpack对象，在合适和适合通过webpack 的API 改变输出变量
 
+```js
 
 
+```
 
 # 怎么处理各类文件
 
@@ -33,13 +42,29 @@ vite
    react, jsx
 
    常见 Babel 预设还有：
+
    @babel/preset-flow
    @babel/preset-react
    @babel/preset-typescript
 
 
    ```js
+  const config = {
+    rules: [
+      {
+        test: /\.jsx/,
+        exclude: /node_modules/,
+        use:{
+           loader: 'babel-loader',
+           options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ['@babel/plugin-transform-runtime']
+           }
+        }
 
+      }
+    ]
+  };
 
    ```
 
@@ -56,7 +81,7 @@ vite
       {
         test: /\.(s[ac]|c)ss$/i, //匹配所有的 sass/scss/css 文件
         use: [
-          'style-loader', // style 标签
+          //'style-loader', // style 标签
           MiniCssExtractPlugin.loader, // 抽离样式文件
           'css-loader',
           'postcss-loader',
@@ -468,3 +493,9 @@ https://juejin.cn/post/7023242274876162084
 
 
 
+
+treeshaking 原理
+
+Make 阶段，收集模块导出变量并记录到模块依赖关系图 ModuleGraph 变量中
+Seal 阶段，遍历 ModuleGraph 标记模块导出变量有没有被使用
+生成产物时，若变量没有被其它模块使用则删除对应的导出语句

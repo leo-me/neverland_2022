@@ -261,3 +261,7 @@ https://www.teqng.com/2021/07/21/30-%E9%81%93-typescript-%E9%9D%A2%E8%AF%95%E9%9
 
 
 https://juejin.cn/post/7088304364078497800#heading-40
+
+
+高级用法: https://zhuanlan.zhihu.com/p/361968852
+
