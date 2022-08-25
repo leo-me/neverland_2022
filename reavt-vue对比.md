@@ -1,4 +1,4 @@
-1. react: 构建用户界面的javascript库， 状态 路由 需要单独配置, vue 完整的框架，vuex vue-router
+1. react: 构建用户界面的javascript库， 状态 路由 需要单独配置 react-router redux, vue 完整的框架，vuex vue-router
 
 2. 语法： react：all in js，jsx，vue： 模板语法
 

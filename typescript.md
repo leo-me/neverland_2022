@@ -43,7 +43,7 @@
 ```js
    使用 & 连接
 
-``
+```
 
 # 为什么要用 typeScript
 
@@ -69,6 +69,13 @@ TypeScript 用这种方式来校验类型合法性，可以提升编写 TS 的�
 2. 泛型
 
 <T> This means that the data type which will be specified at the time of a function call
+
+```js
+  function foo<T>(foo: <T>): <T> {
+
+  }
+
+```
 
 3. union tuple
 
@@ -130,6 +137,7 @@ https://stackoverflow.com/questions/37233735/interfaces-vs-types-in-typescript
 
    ## 非空断言
    在上下文中当类型检查器无法断定类型时，一个新的后缀表达式操作符 ! 可以用于断言操作对象是非 null 和非 undefined 类型。
+
    ```ts
       const info = (name: string | null | undefined) => {
          const str: string = name!;

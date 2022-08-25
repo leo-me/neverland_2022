@@ -1,20 +1,37 @@
-
-1. jsx 经过 babel 转变成 render 函数
-
-2. create update
-
-3. enqueueUpdate
-
-4. scheduleWork 更新 expiration time
-
-5. requestWork
+1. jsx 经过 babel 转变成 render 函数，React.createElement函数执行之后就是jsx对象，也被称为virtual-dom。
 
 
-6. workLoop大循环
-    performUnitOfWork
-    beginWork
-    completeUnitOfWork
+Scheduler阶段
 
-7. Effect List
+2. 不管是在首次渲染还是更新状态的时候，这些渲染的任务都会经过Scheduler的调度，
+   1. Scheduler会根据任务的优先级来决定将哪些任务优先进入render阶段，
 
-8. commit
+   2. 比如用户触发的更新优先级非常高，如果当前正在进行一个比较耗时的任务，则这个任务就会被用户触发的更新打断，
+
+   3. 在Scheduler中初始化任务的时候会计算一个过期时间，不同类型的任务过期时间不同，优先级越高的任务，过期时间越短，优先级越低的任务，过期时间越长。如何保证低优先级的任务可以执行到，就是下一次循环时，如果任务过期了，会直接执行
+
+
+   4. 在最新的Lane模型中，32位二进制来描述优先级和批次，则可以更加细粒度的根据二进制1的位置，来决定任务的优先级，通过二进制的融合和相交，判断任务的优先级是否足够在此次render的渲染。
+
+   5. Scheduler会分配一个 5ms 的时间片给需要渲染的任务，如果是一个非常耗时的任务，如果在一个时间片之内没有执行完成，则会从当前渲染到的Fiber节点暂停计算，让出执行权给浏览器，在之后浏览器空闲的时候从之前暂停的那个Fiber节点继续后面的计算，这个计算的过程就是计算Fiber的差异，并标记副作用。
+
+
+在render阶段：
+
+1. render阶段的主角是Reconciler，在mount阶段和update阶段，它会比较jsx和当前Fiber节点的差异（diff算法指的就是这个比较的过程），
+2. 将带有副作用的Fiber节点标记出来，这些副作用有Placement（插入）、Update（更新）、Deletetion（删除）等，
+3. 而这些带有副作用Fiber节点会加入一条EffectList中
+
+
+在commit阶段：
+
+1. 会遍历EffectList，处理相应的生命周期，将这些副作用应用到真实节点，
+
+2. 这个过程会对应不同的渲染器，在浏览器的环境中就是react-dom，在canvas或者svg中就是reac-art等。
+
+
+
+Scheduler和Reconciler都是在内存中工作的，所以他们不影响最后的呈现
+
+
+
