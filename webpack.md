@@ -28,7 +28,7 @@
 ```
 
 # plugin
-扩展webpack对象，在合适和适合通过webpack 的API 改变输出变量
+扩展webpack对象，在合适和适合通过webpack 的API，监听打包编译过程的事件， 改变输出变量
 
 ```js
 
