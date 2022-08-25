@@ -4,7 +4,13 @@
 
 2. react fiber的原理以及为什么可中断
 
+
 3. react一般有什么优化可以避免重渲染？
+shouldComponentUpdate
+  # React.memo
+
+  # PureComponent 内置shouldComponentUpdate， 会对props 和 state 浅比较
+
 
 4. react和vue的区别
 
@@ -53,13 +59,20 @@
 
 
 
+
+
 2. 项目中用到了vite，说下怎么在vite上怎么打包的?
+
+
+
 
 3. 怎么处理复杂嵌套对象的redux设计（封装一层action）
 
 4.  有很多个sdk要接入，如何让新人没有心智负担的接入？（考察设计模式，可以设计一套规范，需要接入的sdk用extends的方式继承） - 参考一下这题
 
 5.  算法：判断两个链表是否相交
+
+
 
 
 二面：
