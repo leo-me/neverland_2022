@@ -231,7 +231,7 @@ function resolve(dir){
 
 ```js
 // 费时分析
-const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+ const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 ```
 
 # 多进程配置  thread-loader
