@@ -270,7 +270,7 @@ const config = {
 
 ```
 
- # 使用缓存
+# 使用缓存
 
 ```js
 // babel-loader
@@ -494,8 +494,9 @@ https://juejin.cn/post/7023242274876162084
 
 
 
-treeshaking 原理
+# treeshaking 原理
 
 Make 阶段，收集模块导出变量并记录到模块依赖关系图 ModuleGraph 变量中
 Seal 阶段，遍历 ModuleGraph 标记模块导出变量有没有被使用
 生成产物时，若变量没有被其它模块使用则删除对应的导出语句
+

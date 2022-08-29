@@ -113,7 +113,7 @@ https://stackoverflow.com/questions/37233735/interfaces-vs-types-in-typescript
     class Person1{
       setNameAge(name: string):void;
       setNameAge(name: number):void;
-      setNameAge(name:string | number){
+      setNameAge(name:string | number): void{
         if(typeof name === 'string'){
           console.log(`我的名字是${name}`)
         }else{
