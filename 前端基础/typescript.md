@@ -71,13 +71,15 @@ TypeScript 用这种方式来校验类型合法性，可以提升编写 TS 的�
 <T> This means that the data type which will be specified at the time of a function call
 
 ```js
-  function foo<T>(foo: <T>): <T> {
+  function foo<T>(foo: T): T {
 
   }
 
 ```
 
 3. union tuple
+
+
 
 4. type 和 interface
 

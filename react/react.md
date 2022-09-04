@@ -44,8 +44,8 @@
            .then(res => res.json())
            .then(data => {
                if (isMounted) {
-               setData(data);
-               setError(null);
+                setData(data);
+                setError(null);
                }
            })
            .catch(error => {
@@ -96,7 +96,7 @@
 3. react 15的问题，掉帧
     架构: reconciler renderer
 
-4. react 15: schduler(时间分片、优先级调度)、reconciler、renderer
+4. react 16: schduler(时间分片、优先级调度)、reconciler、renderer
 
 
 5. fiber：

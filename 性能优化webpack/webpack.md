@@ -29,6 +29,8 @@
 
 # plugin
 扩展webpack对象，在合适和适合通过webpack 的API，监听打包编译过程的事件， 改变输出变量
+tapable
+
 
 ```js
 
@@ -101,7 +103,7 @@
 
    图片、字体：
 
-file-loader解决图片引入问题，并将图片 copy 到指定目录，默认为 disturl-loader解依赖 file-loader，当图片小于 limit 值的时候，会将图片转为 base64 编码，大于 limit 值的时候依然是使用 file-loader 进行拷贝img-loader压缩图片
+  file-loader解决图片引入问题，并将图片 copy 到指定目录，默认为 disturl-loader解依赖 file-loader，当图片小于 limit 值的时候，会将图片转为 base64 编码，大于 limit 值的时候依然是使用 file-loader 进行拷贝img-loader压缩图片
 
    ```js
 
@@ -499,4 +501,7 @@ https://juejin.cn/post/7023242274876162084
 Make 阶段，收集模块导出变量并记录到模块依赖关系图 ModuleGraph 变量中
 Seal 阶段，遍历 ModuleGraph 标记模块导出变量有没有被使用
 生成产物时，若变量没有被其它模块使用则删除对应的导出语句
+
+基于es的静态的模块的依赖关系，导入导出只能在模块的顶层，去生成模块的依赖关系图
+
 
